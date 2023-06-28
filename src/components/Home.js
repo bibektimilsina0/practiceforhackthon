@@ -1,4 +1,4 @@
-// import Niranjanapi from './components/Niranjanapi'
+
 import Vr from './VrApp'
 import Shortdesc from './Shortdesc';
 import Navbar from './Navbar';
@@ -10,16 +10,17 @@ import other from '../image/others.jpeg'
 // import FullView from './components/FullView';
 import '../vrapp.css'
 function Home() {
+   
     return (
         <div className="home">
             <Navbar />
             <div className='left'>
-                <Vr width={window.clientWidth} height={window.clientHeight} />
+                <Vr />
                 <Shortdesc />
             </div>
-            <div className='right font-mono '>
+            <div className='right mb-0 font-mono'>
                 <div>
-                 <h1 className='text-2xl mt-3 text-lime-500'>EXPLORE </h1>
+                 <h1 className='text-2xl mt-2 text-lime-500'>EXPLORE </h1>
                     <h1 className='text-2xl mt-3 text-orange-900'>NEPAL!</h1>
                     <h4 className='text-lg mt-3 font-mono  '>#LifetimeExperiences</h4>
                 </div>

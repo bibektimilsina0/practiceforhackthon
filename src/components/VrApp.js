@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import '../vrapp.css'
-import video from '../image/mountain.mp4'
+import video from '../image/buddha.mp4'
 import { useEffect } from 'react';
-import '../vrapp.css'
-function VrApp({ vrwidth, vrheight }) {
+import play from '../image/play.svg'
+function VrApp() {
 
     useEffect(() => {
         const scene = new THREE.Scene();
@@ -17,12 +17,13 @@ function VrApp({ vrwidth, vrheight }) {
         const camera = new THREE.PerspectiveCamera(75, width/height, 1, 100);
 
         // create a renderer
+        const render=document.querySelector('#render')
         const canvas = document.querySelector('#three');
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
         renderer.setSize(width, height);
 
     
-        document.body.appendChild(renderer.domElement);
+        render.appendChild(renderer.domElement);
 
         // create a sphere geometry
         const geometry = new THREE.SphereGeometry(15, 32, 16);
@@ -30,7 +31,7 @@ function VrApp({ vrwidth, vrheight }) {
         videoElement.src = video;
         //  videoElement.src = 'https://s.bepro11.com/vr-video-sample.mp4';
         videoElement.loop = true;
-        videoElement.muted = true;
+        videoElement.muted = false;
         videoElement.playsInline = true;
         videoElement.crossOrigin = "anonymous";
         videoElement.load();
@@ -55,8 +56,8 @@ function VrApp({ vrwidth, vrheight }) {
         var pauseButton = document.createElement('button');
         pauseButton.textContent = 'Pause';
 
-        var seekBar = document.createElement('input');
-        seekBar.type = 'range';
+        // var seekBar = document.createElement('input');
+        // seekBar.type = 'range';
 
         // Step 9: Add event listeners to controls
         playButton.addEventListener('click', function () {
@@ -67,16 +68,14 @@ function VrApp({ vrwidth, vrheight }) {
             videoElement.pause();
         });
 
-        seekBar.addEventListener('input', function () {
-            var time = videoElement.duration * (seekBar.value / 100);
-            videoElement.currentTime = time;
-        });
-        // Step 6: Attach controls to DOM elements
+        // seekBar.addEventListener('input', function () {
+        //     var time = videoElement.duration * (seekBar.value / 100);
+        //     videoElement.currentTime = time;
+        // });
   var container = document.getElementById('control');
-
   container.appendChild(playButton);
   container.appendChild(pauseButton);
-  container.appendChild(seekBar);
+//   container.appendChild(seekBar);
     
         // zoom in / out
         const clamp = (v, min, max) => Math.max(min, Math.min(v, max));
@@ -111,8 +110,9 @@ function VrApp({ vrwidth, vrheight }) {
     }, [])
 
     return (
-        <div  className="render" >
+        <div  className="render" id='render'>
             <canvas id='three'></canvas>
+         
         </div>
 
     )

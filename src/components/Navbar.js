@@ -21,15 +21,16 @@ function Navbar() {
                     <li className="list" id="home">
                     <a href='/' >Home</a>
                     </li>
-                    {/* <li className="list" id="market">
-                    <a href='#market' >Market</a>
-                    </li> */}
+                    <li className="list" id="market">
+                    <a href='#vrapp' >360-View</a>
+                    </li>
+                     <li className="list" id="Portfolio">
+                        <a href='#explore' >Explore</a>
+                    </li>
                     <li className="list" id="about">
                     <a href='#about' >About</a>
                     </li>
-                    <li className="list" id="Portfolio">
-                        <a href='#contact' >Contact</a>
-                    </li>
+                   
                 </ui>
             </div>
             <div className="signup" >
