@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import video from '../../image/mountain.mp4'
-import { Link,useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import video from '../../video/mountain.mp4'
+import { useNavigate} from "react-router-dom";
+import { useEffect } from 'react';
 import '../../vrapp.css'
 import './preview.css'
-import FullView from './Fullview';
+// import FullView from './Fullview';
 function Preview({ vidsource, id,rid, data}) {
 
     useEffect(() => {
@@ -55,10 +55,10 @@ function Preview({ vidsource, id,rid, data}) {
         scene.add(mesh);
 
         renderer.setAnimationLoop(() => renderer.render(scene, camera));
-        //video control
-        var playButton = document.querySelector('.button');
+        // //video control
+        // var playButton = document.querySelector('.button');
 
-        // Step 9: Add event listeners to controls
+        // // Step 9: Add event listeners to controls
         // playButton.addEventListener('click', function () {
         //     if (videoElement.paused) {
         //         videoElement.play();
@@ -100,19 +100,22 @@ function Preview({ vidsource, id,rid, data}) {
             camera.rotateY(rotateY);
         });
     }, [])
-  
+    const navigate=useNavigate();
+  const handleClick=()=>{
+    navigate("/fullview",{state:data});
+  };
 
     return (
         <div className="rendercol flex flex-col w-1/2" id='rendercol ' >
             <div className='flex' id='rendercol1'>
-            <canvas className='pvid mr-32 ' id={id} ></canvas>
+            <canvas className='pvid mr-24 rounded-md' id={id} ></canvas>
             </div>
           
             <div className='flex mt-8' id='rendercol2'>
-             <canvas className='pvid mr-32 ' id={id}></canvas>
+             <canvas className='pvid mr-24 rounded-md' id={id}></canvas>
             </div>
         <div>
-            <button  ><i className=" button fa-solid fa-circle-play fa-fade fa-2xl "style={{color:"#d3d9d8"}}></i></button>
+            <button onClick={()=>handleClick()}  ><i className=" button fa-solid fa-circle-play fa-fade fa-2xl "style={{color:"#d3d9d8"}}></i></button>
             </div>
             
         </div>

@@ -11,7 +11,7 @@ function Shortdesc() {
             <div className='end'>
                 <a href="#">Big screen</a>
             </div>
-            <div id="control" className='control '></div>
+           
         </div>
     )
 }

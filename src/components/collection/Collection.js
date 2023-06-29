@@ -6,7 +6,7 @@ import image from '../../image/adventure.jpeg'
 function Collection() {
     const [source, setSource] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/api/crypto/')
+        fetch('http://localhost:5000/api/crypto')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -15,7 +15,7 @@ function Collection() {
     }, [])
     return (
         <div className=" h-full mt-0 ">
-            <h1>bibek timilsina</h1>
+            <h1>Collection of VR Video</h1>
             <div className="flex flex-col">
                 <div className="flex flex-row justify-around ">
                     {
@@ -48,28 +48,7 @@ function Collection() {
                 </div>
 
             </div>
-            {/* <div  className="flex my-1">
-           <div className="collect">
-                <Preview  />
-            </div>
-            <div className="collect">
-                <Preview  />
-            </div>
-            <div className="collect">
-                <Preview  />
-            </div>
-           </div>
-            <div className="flex my-1">
-            <div className="collect">
-                <Preview  />
-            </div>
-            <div className="collect">
-                <Preview  />
-            </div>
-            <div className="collect">
-                <Preview  />
-            </div>
-            </div> */}
+        
 
         </div>
     )

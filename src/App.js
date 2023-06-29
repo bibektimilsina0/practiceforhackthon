@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home'
 import Collection from './components/collection/Collection';
+import Explore from './components/Explore';
 function App() {
   return (
     <div className="App">
@@ -11,7 +12,9 @@ function App() {
     <div className='h-full mt-0'>
     <Collection/>
     </div>
+     <Explore/>
     </div>
+   
   );
 }
 

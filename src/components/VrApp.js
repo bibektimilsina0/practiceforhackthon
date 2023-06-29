@@ -1,16 +1,22 @@
 import * as THREE from 'three';
 import '../vrapp.css'
-import video from '../image/buddha.mp4'
+import video from '../video/mountain.mp4'
 import { useEffect } from 'react';
 import play from '../image/play.svg'
-function VrApp() {
-
+function VrApp({videosrc ,vrwidth,vrheight}) {
+   
     useEffect(() => {
         const scene = new THREE.Scene();
-        // const width = { vrwidth }
-        // const height = { vrheight }
-        const width = window.innerWidth ;
-        const height = window.innerHeight / 1.6;
+      if(!vrwidth){
+        var width = window.innerWidth ;
+      }else{
+         width={vrwidth};
+      }
+      if(!vrheight){
+        var height = window.innerHeight / 1.6;
+      }else{
+        height={vrheight}
+      }
         // const render = document.querySelector('.render');
         // const width = render.clientWidth ;
         // const height = render.clientHeight ;
@@ -28,7 +34,14 @@ function VrApp() {
         // create a sphere geometry
         const geometry = new THREE.SphereGeometry(15, 32, 16);
         const videoElement = document.createElement('video');
-        videoElement.src = video;
+       if(videosrc){
+       
+        videoElement.src=videosrc;
+   
+       }else{
+           videoElement.src = video;
+           
+       } 
         //  videoElement.src = 'https://s.bepro11.com/vr-video-sample.mp4';
         videoElement.loop = true;
         videoElement.muted = false;
@@ -49,34 +62,21 @@ function VrApp() {
         scene.add(mesh);
 
         renderer.setAnimationLoop(() => renderer.render(scene, camera));
-        //video control
-        var playButton = document.createElement('button');
-        playButton.textContent ='play';
+        // //video control
+       
+         //video control
+         var playButton = document.querySelector('.button');
 
-        var pauseButton = document.createElement('button');
-        pauseButton.textContent = 'Pause';
+         // Step 9: Add event listeners to controls
+         playButton.addEventListener('click', function () {
+             if (videoElement.paused) {
+                 videoElement.play();
+             } else {
+                 videoElement.pause();
+             }
+         });
 
-        // var seekBar = document.createElement('input');
-        // seekBar.type = 'range';
-
-        // Step 9: Add event listeners to controls
-        playButton.addEventListener('click', function () {
-            videoElement.play();
-        });
-
-        pauseButton.addEventListener('click', function () {
-            videoElement.pause();
-        });
-
-        // seekBar.addEventListener('input', function () {
-        //     var time = videoElement.duration * (seekBar.value / 100);
-        //     videoElement.currentTime = time;
-        // });
-  var container = document.getElementById('control');
-  container.appendChild(playButton);
-  container.appendChild(pauseButton);
-//   container.appendChild(seekBar);
-    
+       
         // zoom in / out
         const clamp = (v, min, max) => Math.max(min, Math.min(v, max));
         renderer.domElement.addEventListener('wheel', e => {
@@ -112,7 +112,8 @@ function VrApp() {
     return (
         <div  className="render" id='render'>
             <canvas id='three'></canvas>
-         
+            {/* <div id="control" className='control '></div> */}
+            <button  ><i className=" button fa-solid fa-circle-play fa-fade fa-2xl "style={{color:"#d3d9d8"}}></i></button>
         </div>
 
     )
