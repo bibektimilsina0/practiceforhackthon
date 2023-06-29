@@ -6,7 +6,7 @@ const url = 'http://192.168.10.62/php/TourismCulture/uploads';
 function Option() {
   const [place, setPlace] = useState([]);
   useEffect(() => {
-    fetch('http://192.168.10.62/php/TourismCulture/display/getplace.php')
+    fetch('http://192.168.15.149/php/TourismCulture/display/getplace.php')
       .then((responce) => responce.json())
       .then((data) => {
         // console.log(data);
@@ -66,7 +66,7 @@ function Option() {
           ))}
         </ul>
       </div>
-      <div className='py-[20px]  gap-6 py-5 mx-auto flex overflow-x-auto  '>
+      <div className='py-[20px]   md:grid grid-cols-3 gap-6  py-5 mx-auto flex overflow-x-auto  '>
         <div className="flex flex-nowrap space-x-4 overflow-x-scroll">
           {
             place.map((singleplace) => {
