@@ -12,32 +12,32 @@ function Navbar() {
                     <li>
                         <img src={logo} alt="logo" className="image-responsive rounded-circle" style={{ height: "40px", width: "40px" }} />
                     </li>
-                    <li className="list" id="logo"><span className="text-info">Virtual</span>Tour</li>
+                    <li className="list font-bold font-mono ml-5 mt-2 text-zinc-700" id="logo"><span className="text-info  ">VIRTUAL</span>TOUR</li>
 
                 </ul>
             </div>
             <div className="list">
                 <ui id="lists">
                     <li className="list" id="home">
-                    <a href='/' >Home</a>
+                    <a className="font-medium" href='/' >Home</a>
                     </li>
                     <li className="list" id="market">
-                    <a href='#vrapp' >360-View</a>
+                    <a className="font-medium" href='#vrapp' >360-View</a>
                     </li>
                      <li className="list" id="Portfolio">
-                      <Link to='/explore'>Explore</Link>
+                      <Link to='/explore' className="font-medium" >Explore</Link>
                     </li>
                     <li className="list" id="about">
-                    <a href='#about' >About</a>
+                    <a className="font-medium" href='#about' >About</a>
                     </li>
                    
                 </ui>
             </div>
             <div className="signup" >
                 <ul id="signup">
-                    <li>Log In</li>
+                    <li className="font-medium">Log In</li>
                     <li>
-                    <a href='#signup' >Get started free</a>
+                    <a font-medium href='#signup' >Get started free</a>
                         </li>
                 </ul>
             </div>

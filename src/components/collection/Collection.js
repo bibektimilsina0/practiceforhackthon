@@ -15,7 +15,7 @@ function Collection() {
     }, [])
     return (
         <div className=" h-full mt-0 ">
-            <h1>Collection of VR Video</h1>
+            <h1 className="text-3xl font-medium">Collection of VR Video</h1>
             <div className="flex flex-col">
                 <div className="flex flex-row justify-around ">
                     {

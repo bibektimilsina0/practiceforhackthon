@@ -110,7 +110,7 @@ function VrApp({videosrc ,vrwidth,vrheight}) {
     }, [])
 
     return (
-        <div  className="render" id='render'>
+        <div  className="render -m-6" id='render'>
             <canvas id='three'></canvas>
             {/* <div id="control" className='control '></div> */}
             <button  ><i className=" button fa-solid fa-circle-play fa-fade fa-2xl "style={{color:"#d3d9d8"}}></i></button>
