@@ -22,7 +22,8 @@ function Collection() {
                         source.slice(0, 3).map((product) => {
 
                             return (
-                                <div className="collect m-4 flex ">
+                                <div className="collect m-4 ">
+                                    <h1>{product.name}</h1>
                                     <Preview vidsource={product.video} key={product.id} id={product.cid} rid={product.rid} data={product} />
                                   
                                 </div>
@@ -36,8 +37,8 @@ function Collection() {
                         source.slice(3, 6).map((product) => {
 
                             return (
-                                <div className="collect m-4  flex-row">
-                                    
+                                <div className="collect m-4  ">
+                                          <h1>{product.name}</h1>
                                     <Preview vidsource={product.video} key={product.id} id={product.cid} rid={product.rid} data={product}  />
                                    
                                 </div>

@@ -6,12 +6,12 @@ import Explore from './components/Explore';
 function App() {
   return (
     <div className="App">
-      <div className='h-screen'>
+      {/* <div className='h-screen'>
     <Home/>
     </div>
     <div className='h-full mt-0'>
     <Collection/>
-    </div>
+    </div> */}
      <Explore/>
     </div>
    

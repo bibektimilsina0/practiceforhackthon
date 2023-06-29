@@ -1,10 +1,8 @@
 import * as THREE from 'three';
-import video from '../../video/mountain.mp4'
 import { useNavigate} from "react-router-dom";
 import { useEffect } from 'react';
 import '../../vrapp.css'
 import './preview.css'
-// import FullView from './Fullview';
 function Preview({ vidsource, id,rid, data}) {
 
     useEffect(() => {
@@ -32,7 +30,7 @@ function Preview({ vidsource, id,rid, data}) {
         // create a sphere geometry
         const geometry = new THREE.SphereGeometry(15, 32, 16);
         const videoElement = document.createElement('video');
-        // videoElement.src = video;
+    
         videoElement.src = vidsource;
 
         //  videoElement.src = 'https://s.bepro11.com/vr-video-sample.mp4';
@@ -107,11 +105,11 @@ function Preview({ vidsource, id,rid, data}) {
 
     return (
         <div className="rendercol flex flex-col w-1/2" id='rendercol ' >
-            <div className='flex' id='rendercol1'>
+            <div className='flex mb-6' id='rendercol1'>
             <canvas className='pvid mr-24 rounded-md' id={id} ></canvas>
             </div>
           
-            <div className='flex mt-8' id='rendercol2'>
+            <div className='flex mt-8 ' id='rendercol2'>
              <canvas className='pvid mr-24 rounded-md' id={id}></canvas>
             </div>
         <div>
