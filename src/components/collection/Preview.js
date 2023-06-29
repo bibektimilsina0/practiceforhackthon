@@ -45,37 +45,25 @@ function Preview({ vidsource, id,rid, data}) {
         // create a material from the texture
         const material = new THREE.MeshBasicMaterial({ map: texture });
 
-        // need to use back side - surface of the sphere is facing outside but we put the camera inside of the sphere
+       
         material.side = THREE.BackSide;
 
-        // create a mesh and add to the scene
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
         renderer.setAnimationLoop(() => renderer.render(scene, camera));
-        // //video control
-        // var playButton = document.querySelector('.button');
-
-        // // Step 9: Add event listeners to controls
-        // playButton.addEventListener('click', function () {
-        //     if (videoElement.paused) {
-        //         videoElement.play();
-        //     } else {
-        //         videoElement.pause();
-        //     }
-        // });
+      
 
 
 
-        // zoom in / out
         const clamp = (v, min, max) => Math.max(min, Math.min(v, max));
         renderer.domElement.addEventListener('wheel', e => {
             camera.fov = clamp(camera.fov + e.deltaY / 10, 10, 120);
-            // need to call this function after changing most of properties in PerspectiveCamera
+         
             camera.updateProjectionMatrix();
         });
 
-        // rotate camera
+  
         let mouseDown = false;
         renderer.domElement.addEventListener('mousedown', e => {
             if (e.button === 0) mouseDown = true;
@@ -104,14 +92,11 @@ function Preview({ vidsource, id,rid, data}) {
   };
 
     return (
-        <div className="rendercol flex flex-col w-1/2" id='rendercol ' >
-            <div className='flex mb-6' id='rendercol1'>
-            <canvas className='pvid mr-24 rounded-md' id={id} ></canvas>
+        <div className="rendercol mx-auto md:grid grid-cols-3  w-1/2" id='rendercol ' >
+            <div className='flex mb-6' id={rid}>
+            <canvas className='pvid  rounded-md' id={id} ></canvas>
             </div>
           
-            <div className='flex mt-8 ' id='rendercol2'>
-             <canvas className='pvid mr-24 rounded-md' id={id}></canvas>
-            </div>
         <div>
             <button onClick={()=>handleClick()}  ><i className=" button fa-solid fa-circle-play fa-fade fa-2xl "style={{color:"#d3d9d8"}}></i></button>
             </div>

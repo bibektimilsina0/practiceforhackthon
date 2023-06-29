@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import '../Navbar.css';
 import logo from '../image/logo.jpg';
 
@@ -25,7 +25,7 @@ function Navbar() {
                     <a href='#vrapp' >360-View</a>
                     </li>
                      <li className="list" id="Portfolio">
-                        <a href='#explore' >Explore</a>
+                      <Link to='/explore'>Explore</Link>
                     </li>
                     <li className="list" id="about">
                     <a href='#about' >About</a>
