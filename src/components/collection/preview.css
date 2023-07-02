@@ -15,9 +15,3 @@
 	z-index: 100;
 	display:block;
 }
-canvas#rendercol1:empty {
-    display: none;
- }
-canvas#rendercol2:empty {
-    display: none;
- }
